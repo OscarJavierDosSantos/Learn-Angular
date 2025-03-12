@@ -4,6 +4,14 @@ https://chromewebstore.google.com/detail/angular-devtools/ienfalfjdbdpebioblfack
 
 https://sergi-jimenez.medium.com/eslint-y-prettier-para-angular-en-2-minutos-a4ab35187bc6
 
+Comandos usados
+ng add @angular-eslint/schematics
+npm install prettier --save-dev
+npm install prettier-eslint eslint-config-prettier eslint-plugin-prettier --save-dev
+ng lint --fix
+ng generate component components\contador --> genera componente
+doskey /history
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
 ## Development server
