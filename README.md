@@ -2,6 +2,8 @@
 
 https://chromewebstore.google.com/detail/angular-devtools/ienfalfjdbdpebioblfackkekamfmbnh
 
+https://sergi-jimenez.medium.com/eslint-y-prettier-para-angular-en-2-minutos-a4ab35187bc6
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
 ## Development server
