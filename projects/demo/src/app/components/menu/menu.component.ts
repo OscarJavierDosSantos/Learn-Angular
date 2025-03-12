@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-type MenuItem = {
+interface MenuItem {
   path: string;
   label: string;
-};
+}
 
 @Component({
   selector: 'cas-menu',
@@ -12,23 +12,24 @@ type MenuItem = {
     <nav>
       <ul>
         @for (item of items; track item.path) {
-        <li>
-          <a [href]="item.path">{{ item.label }}</a>
-        </li>
-        } @if (isLogin) {
-        <li>
-          <a [href]="'/profile'">Profile</a>
-        </li>
-        <li>
-          <a [href]="'/logout'">Logout</a>
-        </li>
+          <li>
+            <a [href]="item.path">{{ item.label }}</a>
+          </li>
+        }
+        @if (isLogin) {
+          <li>
+            <a [href]="'/profile'">Profile</a>
+          </li>
+          <li>
+            <a [href]="'/logout'">Logout</a>
+          </li>
         } @else {
-        <li>
-          <a [href]="'/login'">Login</a>
-        </li>
-        <li>
-          <a [href]="'/register'">Register</a>
-        </li>
+          <li>
+            <a [href]="'/login'">Login</a>
+          </li>
+          <li>
+            <a [href]="'/register'">Register</a>
+          </li>
         }
       </ul>
     </nav>
@@ -58,7 +59,7 @@ type MenuItem = {
 })
 export class MenuComponent {
   items: MenuItem[];
-  isLogin: boolean = false;
+  isLogin = false;
   constructor() {
     this.items = [
       {
