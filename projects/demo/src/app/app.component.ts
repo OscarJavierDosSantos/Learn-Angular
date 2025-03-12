@@ -19,9 +19,9 @@ import { ContadorComponent } from './components/contador/contador.component';
       <cas-menu />
     </cas-header>
     <main>
-      <p>1</p>
-      <p>2</p>
+      <p>Ejemplo de Componente Contador</p>
       <cas-contador />
+      <p>Ejemplo de Componente Contador</p>
       <router-outlet />
     </main>
     <cas-footer />
