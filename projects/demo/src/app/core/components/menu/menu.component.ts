@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+//import { routes } from '../../../app.routes';
 
 type MenuItem = {
   path: string;
@@ -85,5 +86,12 @@ export class MenuComponent {
         label: 'About',
       },
     ];
+    // this.items = routes
+    // .filter{(route) => route.path != '**' && route.path !=''}
+    // .map(route)=>({
+    //   path:route.path!,
+    //   label:route.data!['label'] as string,
+    // })
+    // };
   }
 }
