@@ -1,13 +1,7 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'home',
-    title: 'Home | Angular Demo',
-    data: { label: 'Home' },
-  },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
 
   {
     path: 'home',
@@ -28,10 +22,5 @@ export const routes: Routes = [
     title: 'About | Angular Demo',
     data: { label: 'About' },
   },
-  {
-    path: '**',
-    redirectTo: 'home',
-    title: 'Home | Angular Demo',
-    data: { label: 'Home' },
-  },
+  { path: '**', redirectTo: 'home' },
 ];

@@ -6,8 +6,13 @@ import { FormsModule } from '@angular/forms';
   imports: [FormsModule],
   template: `
     <p>Hola {{ user || 'amigo' }}</p>
+    <!-- <input
+      type="text"
+      placeholder="Escribe tu nombre"
+      [value]="user"
+      (input)="setUserName($event)"
+    /> -->
     <input type="text" placeholder="Escribe tu nombre" [(ngModel)]="user" />
-    <!-- (input)="user = setUserName($event)" [value]="user" -->
     <button (click)="clean()">Borrar</button>
   `,
   styles: `
@@ -27,6 +32,6 @@ export class GreetingComponent {
 
   // setUserName(event: Event) {
   //   const target: HTMLInputElement = event.target as HTMLInputElement;
-  //   return target.value;
+  //   this.user = target.value;
   // }
 }
