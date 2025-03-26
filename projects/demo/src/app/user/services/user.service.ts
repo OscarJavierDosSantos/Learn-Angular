@@ -50,7 +50,8 @@ export class UserService {
         next: (token) => {
           console.log(token);
           localStorage.setItem('token', token);
-          location.href = '/';
+          this._token.set(token);
+          this._currentUser.set(jwtDecode(token));
         },
         error: (error) => {
           console.error('Error login user', error);
@@ -69,11 +70,30 @@ export class UserService {
     }
   }
 
+  getUserById(id: string) {
+    // const x = this._currentUser()?.id;
+    const url = this.url + '/' + id;
+    return this.httpClient
+      .get<ApiResponse>(url, {
+        headers: {
+          Authorization: `Bearer ${this.token()}`,
+        },
+      })
+      .pipe(map((r) => r.results[0]));
+  }
+
   register(data: DTOUser) {
-    console.log(data);
+    const formData = new FormData();
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+    formData.append('firstName', data.firstName);
+    formData.append('lastName', data.lastName);
+    formData.append('avatar', data.avatar as Blob);
+    console.log(formData);
+    console.log(Object.fromEntries(formData));
     const url = this.url + '/register';
     return this.httpClient
-      .post<ApiResponse>(url, data)
+      .post<ApiResponse>(url, formData)
       .pipe(map((r) => r.results[0]));
   }
 
@@ -83,6 +103,5 @@ export class UserService {
     this._currentUser.set(null);
     console.log('Token', this.token());
     console.log('User', this.currentUser());
-    location.href = '/';
   }
 }

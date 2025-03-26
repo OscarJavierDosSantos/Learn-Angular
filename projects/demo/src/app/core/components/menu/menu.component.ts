@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 import { MenuItem } from '../../../app.component';
@@ -17,9 +17,9 @@ import { UserService } from '../../../user/services/user.service';
             }}</a>
           </li>
         }
-        @if (isLogin) {
+        @if (isLogin()) {
           <li>
-            <a [routerLink]="'/profile'">Profile</a>
+            <a [routerLink]="'/user'">Profile</a>
           </li>
           <li>
             <a (click)="logout($event)" href="/">Logout</a>
@@ -63,7 +63,7 @@ export class MenuComponent {
   items = input<MenuItem[]>();
   userService = inject(UserService);
   router = inject(Router);
-  isLogin = this.userService.token() !== null;
+  isLogin = computed(() => this.userService.token() !== null);
 
   logout(event: Event) {
     event.preventDefault();
