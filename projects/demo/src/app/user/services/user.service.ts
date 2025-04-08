@@ -9,7 +9,7 @@ type UserLogin = {
   password: string;
 };
 
-type UserLogged = {
+export type UserLogged = {
   email: string;
   iat: number;
   id: string;
@@ -61,7 +61,6 @@ export class UserService {
 
   getToken() {
     this._token.set(localStorage.getItem('token'));
-
     const token = this._token();
     if (token) {
       this._currentUser.set(jwtDecode(token));
