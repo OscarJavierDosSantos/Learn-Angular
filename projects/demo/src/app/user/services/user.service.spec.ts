@@ -7,8 +7,9 @@ import {
 } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { User } from '../../core/types/user';
+import { environment } from '../../../environments/environment.development';
 
-const urlBase = 'http://localhost:3000';
+const urlBase = environment.urlServer;
 const urlAPI = '/api/users';
 const url = new URL(urlAPI, urlBase);
 
