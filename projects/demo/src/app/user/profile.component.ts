@@ -16,7 +16,7 @@ import { environment } from '../../environments/environment';
     <pre>{{ userService.currentUser() | json }}</pre>
     <pre>{{ user | json }}</pre>
 
-    <img [src]="urlServerUploads + user?.avatar" alt="user image" />
+    <img [src]="urlUploads + user?.avatar" alt="user image" />
   `,
   styles: ``,
 })
@@ -24,7 +24,7 @@ export default class ProfileComponent {
   userService = inject(UserService);
   router = inject(Router);
   user$: Observable<User>;
-  urlServerUploads = environment.urlServer + '/uploads/';
+  urlUploads = environment.urlServer + '/uploads/';
 
   constructor() {
     if (!this.userService.currentUser()) {

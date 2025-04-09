@@ -7,7 +7,7 @@ import {
   provideHttpClientTesting,
 } from '@angular/common/http/testing';
 import { Film } from '../../core/types/film';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 const urlBase = environment.urlServer;
 const urlAPI = '/api/films';
